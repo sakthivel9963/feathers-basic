@@ -1,5 +1,15 @@
-const users = require('./users/users.service.js');
-// eslint-disable-next-line no-unused-vars
+const companyService = require('./rbac/company/company.service.js');
+const organizationService = require('./rbac/organization/organization.service.js');
+const roleService = require('./rbac/role/role.service.js');
+const menuService = require('./rbac/menu/menu.service.js');
+const subMenuService = require('./rbac/subMenu/subMenu.service.js');
+const usersService = require('./rbac/users/users.service.js');
+
 module.exports = function (app) {
-  app.configure(users);
+  app.configure(companyService);
+  app.configure(organizationService);
+  app.configure(roleService);
+  app.configure(menuService);
+  app.configure(subMenuService);
+  app.configure(usersService);
 };

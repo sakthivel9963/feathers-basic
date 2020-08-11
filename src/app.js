@@ -48,6 +48,17 @@ app.configure(services);
 // Set up event channels (see channels.js)
 app.configure(channels);
 
+// app.get('/test', async (req, res) => {
+//   let data = [];
+//   try {
+//     data = await app.service('users').find();
+//     console.log(data);
+//   } catch (error) {
+//     console.error(error);
+//   }
+//   res.send(data);
+// });
+
 // Configure a middleware for 404s and the error handler
 app.use(express.notFound());
 app.use(express.errorHandler({ logger }));

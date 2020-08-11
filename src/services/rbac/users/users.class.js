@@ -1,10 +1,12 @@
 const { Service } = require('feathers-knex');
+const { users } = require('../../../models/tableNames');
 
 exports.Users = class Users extends Service {
-  constructor(options) {
+  constructor(options, app) {
     super({
       ...options,
-      name: 'users'
+      name: users,
     });
+    this.app = app;
   }
 };
