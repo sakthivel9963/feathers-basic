@@ -5,16 +5,18 @@
 // See http://knexjs.org/
 // for more of what you can do here.
 const defaultValue = require('../default.model');
-const { users, role, organization, company } = require('../tableNames');
+const {
+  users, role, organization, company,
+} = require('../tableNames');
 
-module.exports = async function (app) {
+module.exports = function (app) {
   const db = app.get('knexClient');
   const tableName = users;
 
   try {
-    const exists = await db.schema.hasTable(tableName);
+    const exists = db.schema.hasTable(tableName);
     if (!exists) {
-      await db.schema.createTable(tableName, (table) => {
+      db.schema.createTable(tableName, (table) => {
         table.increments('id');
         table.string('email').unique();
         table.string('user_name').unique();

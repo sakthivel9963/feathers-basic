@@ -28,5 +28,8 @@
   "mysql": {
     "client": "mysql2",
     "connection": "DATABASE_CONNECTION"
+  },
+  "migrations": {
+    "directory": "../db/migrations"
   }
 }

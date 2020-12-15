@@ -7,6 +7,6 @@ exports.Users = class Users extends Service {
       ...options,
       name: users,
     });
-    this.app = app;
+    // this.app = app;
   }
 };
