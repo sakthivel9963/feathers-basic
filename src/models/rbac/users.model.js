@@ -9,39 +9,38 @@ const {
   users, role, organization, company,
 } = require('../tableNames');
 
-module.exports = function (app) {
+module.exports = (app) => {
   const db = app.get('knexClient');
   const tableName = users;
-
   try {
-    const exists = db.schema.hasTable(tableName);
-    if (!exists) {
-      db.schema.createTable(tableName, (table) => {
-        table.increments('id');
-        table.string('email').unique();
-        table.string('user_name').unique();
-        table.string('password');
-        table.string('first_name');
-        table.string('last_name');
-        table.string('mobile');
-        table.string('image');
-        table.integer('role_id').unsigned().references('id').inTable(`${role}`);
-        table
-          .integer('company_id')
-          .unsigned()
-          .references('id')
-          .inTable(`${company}`)
-          .onDelete('cascade');
-        table
-          .integer('organization_id')
-          .unsigned()
-          .references('id')
-          .inTable(`${organization}`)
-          .onDelete('cascade');
-        defaultValue(table);
-      });
-      console.log(`Created ${tableName} table`);
-    }
+    // const exists = db.schema.hasTable(tableName);
+    // if (!exists) {
+    //   db.schema.createTable(tableName, (table) => {
+    //     table.increments('id');
+    //     table.string('email').unique();
+    //     table.string('user_name').unique();
+    //     table.string('password');
+    //     table.string('first_name');
+    //     table.string('last_name');
+    //     table.string('mobile');
+    //     table.string('image');
+    //     // table.integer('role_id').unsigned().references('id').inTable(`${role}`);
+    //     // table
+    //     //   .integer('company_id')
+    //     //   .unsigned()
+    //     //   .references('id')
+    //     //   .inTable(`${company}`)
+    //     //   .onDelete('cascade');
+    //     // table
+    //     //   .integer('organization_id')
+    //     //   .unsigned()
+    //     //   .references('id')
+    //     //   .inTable(`${organization}`)
+    //     //   .onDelete('cascade');
+    //     defaultValue(table);
+    //   });
+    //   console.log(`Created ${tableName} table`);
+    // }
     return db;
   } catch (error) {
     console.error(error);

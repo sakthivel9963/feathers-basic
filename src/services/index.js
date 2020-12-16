@@ -5,7 +5,7 @@
 // const subMenuService = require('./rbac/subMenu/subMenu.service.js');
 const usersService = require('./rbac/users/users.service.js');
 
-module.exports = function (app) {
+module.exports = (app) => {
   // app.configure(companyService);
   // app.configure(organizationService);
   // app.configure(roleService);
