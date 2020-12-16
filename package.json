@@ -28,7 +28,10 @@
     "lint": "eslint src/. test/. --config .eslintrc.json --fix",
     "dev": "nodemon src/",
     "start": "node src/",
-    "mocha": "mocha test/ --recursive --exit"
+    "mocha": "mocha test/ --recursive --exit",
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "seed": "knex seed:run"
   },
   "standard": {
     "env": [
@@ -51,8 +54,8 @@
     "dotenv": "^8.2.0",
     "feathers-knex": "^7.1.1",
     "helmet": "^3.23.3",
-    "knex": "^0.21.3",
-    "mysql": "^2.18.1",
+    "knex": "^0.21.10",
+    "mysql2": "^2.2.5",
     "serve-favicon": "^2.5.0",
     "winston": "^3.3.3"
   },
